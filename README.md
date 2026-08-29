@@ -20,6 +20,19 @@ Spec-Driven Development inverte a ordem usual: em vez de código guiando a espec
 
 Cada feature vive em `specs/NNN-nome-da-feature/`, numa branch git própria (`NNN-nome-da-feature`), com seus próprios `spec.md`, `plan.md`, `tasks.md` e artefatos de design.
 
+Além das 7 fases, o kit traz dois comandos de apoio para git:
+
+| Comando | O que faz |
+|---|---|
+| `/commit` | Cria um commit com as mudanças atuais do working tree |
+| `/push` | Envia os commits da branch atual para o remoto |
+
+### Regras de comportamento do fluxo
+
+- **`/specify` nunca segue em frente com dúvida.** Sempre que surgir qualquer ambiguidade real sobre o que a feature deve fazer, o comando para e pergunta na conversa — não importa quantas perguntas sejam necessárias. Não usa `[NEEDS CLARIFICATION]` como forma de adiar a decisão e continuar escrevendo.
+- **`/tasks` organiza o trabalho em fases coerentes** com a feature real (ex.: "Fase 1: Autenticação básica", "Fase 2: Recuperação de senha"), não só num esqueleto genérico fixo repetido sempre igual.
+- **`/push` nunca força push** e sempre confirma o que vai ser enviado antes de rodar `git push`.
+
 ## Estrutura do kit
 
 ```
@@ -27,7 +40,7 @@ Cada feature vive em `specs/NNN-nome-da-feature/`, numa branch git própria (`NN
 ├── memory/constitution.md      # template da constituição do projeto
 ├── templates/                  # templates de spec, plan, tasks e do CLAUDE.md
 └── scripts/bash/                # scripts que os slash commands chamam
-.claude/commands/                # os 7 slash commands (/constitution, /specify, ...)
+.claude/commands/                # os 9 slash commands (/constitution, /specify, ..., /commit, /push)
 specs/                           # onde as specs de cada feature são criadas (vazio aqui)
 ```
 
@@ -55,6 +68,8 @@ Depois, dentro de uma sessão do Claude Code no projeto:
 /tasks
 /analyze              # opcional, antes de implementar
 /implement
+/commit               # empacota o que foi feito
+/push                 # envia para o remoto
 ```
 
 ## Pré-requisitos

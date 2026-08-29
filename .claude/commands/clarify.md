@@ -5,6 +5,8 @@ description: Identifica ambiguidades no spec.md da feature atual e faz perguntas
 Argumentos opcionais do usuário (ex.: focar em uma área específica):
 $ARGUMENTS
 
+**Nota**: o `/specify` já pergunta qualquer dúvida real no momento em que escreve a spec, então normalmente ela já chega aqui sem pendências. Use este comando para uma segunda passada de revisão, para reabrir uma spec antiga, ou quando o usuário quiser revisitar uma decisão já tomada.
+
 ## Sua tarefa
 
 1. Rode:

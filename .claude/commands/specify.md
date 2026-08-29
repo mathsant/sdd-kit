@@ -20,11 +20,16 @@ $ARGUMENTS
    - Escreva a história principal e os cenários de aceitação no formato Dado/Quando/Então.
    - Escreva Requisitos Funcionais testáveis (RF-001, RF-002, ...).
    - Identifique Entidades-Chave, se aplicável.
-   - **Toda ambiguidade real vira um marcador `[NEEDS CLARIFICATION: pergunta específica]`** — não assuma decisões de produto ou técnicas que o usuário não deu. Não é o mesmo que preencher tudo com genéricos; é melhor marcar 3 ambiguidades reais do que inventar 3 respostas.
    - Mantenha o foco em O QUÊ/POR QUÊ. Nada de stack, frameworks, nomes de tabela — isso é papel do `/plan`.
 
-4. Rode o checklist de revisão no fim do template. Se algo não bater (detalhe de implementação vazou, requisito não-testável), corrija antes de terminar.
+4. **Regra crítica — dúvida bloqueia, não marca e segue**: este é o momento mais importante do fluxo SDD. Sempre que você tiver qualquer dúvida real sobre o que a feature deve fazer (ambiguidade de comportamento, escopo indefinido, requisito que admite mais de uma interpretação, regra de negócio não dada), **pare e pergunte ao usuário diretamente na conversa**, uma pergunta por vez, e espere a resposta antes de continuar escrevendo a spec.
+   - Não existe limite de perguntas — se surgirem 10 dúvidas reais, faça as 10. Preferir poucas perguntas nunca é motivo para assumir uma resposta.
+   - Não use `[NEEDS CLARIFICATION: ...]` como forma de "seguir em frente apesar da dúvida" — use a pergunta direta na conversa como primeira linha de ação. O marcador só deve aparecer no `spec.md` se, excepcionalmente, o usuário pedir explicitamente para deixar algo em aberto para decidir depois.
+   - Depois de cada resposta, incorpore-a imediatamente no requisito/cenário afetado e continue preenchendo a spec.
+   - Só considere a spec pronta quando não houver mais nenhuma dúvida real sua sobre o comportamento esperado.
 
-5. Reporte ao usuário: branch criada, caminho do spec.md, e a lista de `[NEEDS CLARIFICATION]` pendentes (se houver). Sugira rodar `/clarify` em seguida se houver pendências, ou `/plan` diretamente se a spec já estiver completa.
+5. Rode o checklist de revisão no fim do template. Se algo não bater (detalhe de implementação vazou, requisito não-testável), corrija antes de terminar.
+
+6. Reporte ao usuário: branch criada, caminho do spec.md, e um resumo das decisões tomadas nas perguntas feitas. A spec só deve chegar a este ponto sem `[NEEDS CLARIFICATION]` pendente — se algum ficou (por pedido explícito do usuário), avise que `/clarify` pode ser rodado depois para revisitá-lo. Caso contrário, já pode seguir direto para `/plan`.
 
 Não crie `plan.md` nem toque em código de implementação neste comando.

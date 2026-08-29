@@ -5,6 +5,8 @@
 
 Cada tarefa referencia o(s) caminho(s) de arquivo exato(s) a criar/editar.
 
+**As fases abaixo (3.1-3.5) são um esqueleto de exemplo, não um formato fixo.** O `/tasks` deve substituí-las por fases coerentes com a feature real — nomeadas pelo marco que entregam (ex.: "Fase 1: Autenticação básica", "Fase 2: Recuperação de senha"), mantendo a ordem TDD dentro de cada uma. Use este esqueleto como está só quando ele já for a divisão mais coerente para a feature.
+
 ## Fase 3.1: Setup
 
 - [ ] T001 Criar estrutura de projeto/diretórios conforme `plan.md`
