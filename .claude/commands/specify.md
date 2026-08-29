@@ -35,6 +35,12 @@ $ARGUMENTS
 
 6. Rode o checklist de revisão no fim do template. Se algo não bater (detalhe de implementação vazou, requisito não-testável, DoD vago ou ausente), corrija antes de terminar.
 
-7. Reporte ao usuário: branch criada, caminho do spec.md, um resumo das decisões tomadas nas perguntas feitas, e a Definição de Pronto registrada. A spec só deve chegar a este ponto sem `[NEEDS CLARIFICATION]` pendente — se algum ficou (por pedido explícito do usuário), avise que `/clarify` pode ser rodado depois para revisitá-lo. Caso contrário, já pode seguir direto para `/plan`.
+7. **Vínculo com o design (condicional — só se `design/` existir E a feature tiver UI)**: se `design/manifest.md` existir e esta feature envolver telas/interface, identifique no catálogo (`design/manifest.md`) quais telas a feature realiza e grave o vínculo nos dois lados:
+   - Na tabela "Telas" de `design/manifest.md`, preencha a coluna "Feature" de cada tela realizada por esta feature com o `BRANCH_NAME`.
+   - Em cada `design/screens/<tela>.md` correspondente, preencha a seção "Feature relacionada" com o `BRANCH_NAME`.
+   - **Não** copie layout, tokens, cores ou detalhes visuais para o `spec.md` — o design continua sendo referência à parte; o `spec.md` só descreve comportamento. O design nunca sobrepõe a spec: se algo no design contradisser um requisito, a spec vence e a divergência deve ser anotada.
+   - Se `design/` não existir ou a feature não tiver UI, pule este passo sem comentar.
+
+8. Reporte ao usuário: branch criada, caminho do spec.md, um resumo das decisões tomadas nas perguntas feitas, a Definição de Pronto registrada e — se o passo 7 se aplicou — quais telas do catálogo foram vinculadas a esta feature. A spec só deve chegar a este ponto sem `[NEEDS CLARIFICATION]` pendente — se algum ficou (por pedido explícito do usuário), avise que `/clarify` pode ser rodado depois para revisitá-lo. Caso contrário, já pode seguir direto para `/plan`.
 
 Não crie `plan.md` nem toque em código de implementação neste comando.

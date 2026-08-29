@@ -5,8 +5,8 @@
 
 <!--
 Índice do que foi importado do Claude Design e ponte para o fluxo SDD.
-Gerado por /design-import. As colunas "Feature" e "Status" são preenchidas à mão
-conforme as telas viram specs e são implementadas.
+Gerado por /design-import. A coluna "Feature" é preenchida pelo /specify quando a
+tela vira spec; a "Status" à mão conforme a implementação avança.
 O conteúdo gerado é sobrescrito no re-run; o bloco SDD:MANUAL é preservado.
 -->
 

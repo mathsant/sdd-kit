@@ -63,3 +63,4 @@ Tarefa: "Teste de integração para [cenário 1] em [caminho]"
 - Verificar que cada teste falha antes de implementar o código correspondente
 - Commitar após cada tarefa concluída
 - Evitar: tarefas vagas, conflitos no mesmo arquivo marcadas como `[P]`
+- Tarefa de UI: citar no texto o arquivo de design que a governa (`design/screens/<tela>.md` ou `design/components.md#<componente>`) e usar `design/tokens.*` para valores visuais

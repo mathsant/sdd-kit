@@ -66,7 +66,8 @@ specs/[###-nome-da-feature]/
 2. Gere contratos de API/interface a partir dos requisitos funcionais → `contracts/`.
 3. Extraia cenários de teste dos cenários de usuário → casos de teste de integração.
 4. Gere `quickstart.md` com os passos para rodar/validar a feature manualmente.
-5. Rode `.specify/scripts/bash/update-agent-context.sh` para atualizar o CLAUDE.md do projeto com a stack decidida aqui.
+5. **Se `design/` existir e a feature tiver UI**: mapeie cada tela vinculada a esta feature (no `design/manifest.md`) a uma rota/página; liste os componentes de `design/components.md` que ela usa (reusar os que já existem no código, criar os que faltam); referencie `design/screens/<tela>.md` e `design/tokens.*` como fonte visual — não redefina tokens à mão. Registre em `research.md` as telas cobertas e as divergências design↔spec (a spec vence).
+6. Rode `.specify/scripts/bash/update-agent-context.sh` para atualizar o CLAUDE.md do projeto com a stack decidida aqui.
 
 **Saída**: `data-model.md`, `contracts/`, `quickstart.md`, `CLAUDE.md` atualizado.
 
@@ -96,6 +97,7 @@ specs/[###-nome-da-feature]/
 
 - [ ] Fase 0: pesquisa completa (`research.md`)
 - [ ] Fase 1: design completo (`data-model.md`, `contracts/`, `quickstart.md`, `CLAUDE.md`)
+- [ ] Fase 1: telas mapeadas contra `design/` (ou N/A)
 - [ ] Verificação da Constituição: inicial aprovada
 - [ ] Verificação da Constituição: pós-design aprovada
 - [ ] Nenhum `[NEEDS CLARIFICATION]` restante

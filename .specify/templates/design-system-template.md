@@ -9,10 +9,10 @@ Este arquivo é a fonte da verdade sobre a LINGUAGEM VISUAL do projeto: cores,
 tipografia, espaçamento e demais tokens definidos no design. É gerado por
 /design-import a partir do export do Claude Design.
 
-/plan e /tasks NÃO leem este arquivo automaticamente — referencie-o à mão ao
-planejar ou implementar telas. Rodar /design-import de novo sobrescreve as
-seções geradas, mas preserva o que estiver entre os marcadores
-SDD:MANUAL:INICIO / SDD:MANUAL:FIM.
+/plan, /tasks e /implement leem este arquivo automaticamente em features com UI
+(via o vínculo tela↔feature registrado por /specify em design/manifest.md).
+Rodar /design-import de novo sobrescreve as seções geradas, mas preserva o que
+estiver entre os marcadores SDD:MANUAL:INICIO / SDD:MANUAL:FIM.
 -->
 
 ## Cores

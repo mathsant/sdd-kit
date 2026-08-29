@@ -54,8 +54,8 @@ o artboard extraído.]
 
 ## Feature relacionada
 
-[Preenchido à mão: `specs/NNN-nome-da-feature/` que implementa esta tela. Ou "—" se
-ainda não há.]
+[Preenchido pelo `/specify` quando a tela vira spec: `specs/NNN-nome-da-feature/` que
+implementa esta tela. Ou "—" se ainda não há.]
 
 <!-- SDD:MANUAL:INICIO -->
 <!-- Anotações manuais preservadas entre re-execuções de /design-import. -->
