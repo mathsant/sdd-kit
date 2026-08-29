@@ -6,12 +6,13 @@ Este repositório **não é um projeto executável** — é um template para tra
 
 ## O que é SDD
 
-Spec-Driven Development inverte a ordem usual: em vez de código guiando a especificação, a especificação (o que o sistema deve fazer e por quê) guia o código. O fluxo completo tem 8 fases, cada uma com seu comando Claude Code (mais uma etapa opcional de design):
+Spec-Driven Development inverte a ordem usual: em vez de código guiando a especificação, a especificação (o que o sistema deve fazer e por quê) guia o código. O fluxo completo tem 8 fases, cada uma com seu comando Claude Code (mais etapas opcionais de design e de ambiente local):
 
 | Fase | Comando | O que faz |
 |---|---|---|
 | 0 | `/constitution` | Define os princípios não-negociáveis do projeto |
 | 0.5 | `/architecture` | Detecta (projeto existente) ou define (projeto novo) a arquitetura e convenções de desenvolvimento |
+| 0.6 | `/localdev` | (opcional) Analisa o projeto e prepara o ambiente para rodar/testar localmente: guia em `.specify/memory/local-dev.md` + `docker-compose.dev.yml`, `.env.example`, scripts de seed |
 | 0.75 | `/design-import` | (opcional) Importa um design do Claude Design e documenta Design System, telas e componentes em `design/` |
 | 1 | `/specify` | Transforma uma descrição em linguagem natural numa especificação de feature |
 | 2 | `/clarify` | Identifica ambiguidades na spec e resolve via perguntas direcionadas |
@@ -23,6 +24,8 @@ Spec-Driven Development inverte a ordem usual: em vez de código guiando a espec
 Cada feature vive em `specs/NNN-nome-da-feature/`, numa branch git própria (`NNN-nome-da-feature`), com seus próprios `spec.md`, `plan.md`, `tasks.md` e artefatos de design.
 
 `/constitution` e `/architecture` rodam uma vez por projeto (não por feature) e alimentam `.specify/memory/`: a constituição define POR QUÊ/O QUÊ é inegociável; `architecture.md` define COMO o código é organizado — stack, estrutura de diretórios, convenções de nomenclatura, e onde cada tipo de código novo deve ir. `/plan` e `/tasks` leem `architecture.md` e seguem essas convenções em vez de reinventar a estrutura a cada feature.
+
+`/localdev` também roda uma vez por projeto (e de novo quando a infra local mudar). Ele varre a stack (`architecture.md`, `docker-compose*`, `.env*`, clientes no código) para inventariar tudo que a aplicação precisa para subir — runtime, bancos, brokers, caches, integrações externas — e, para cada dependência que dá para containerizar (Mongo, Kafka, Redis, Postgres, S3...), **pergunta ao usuário** como quer simulá-la, com sugestões e trade-offs. O que **não** roda fiel na máquina (gateway de pagamento, SSO corporativo, API de terceiro) vai para uma seção "Não roda localmente" explícita, com o workaround de cada um (sandbox do fornecedor, feature flag, stub local opcional). No fim grava o guia em `.specify/memory/local-dev.md` e cria os arquivos de infra (`docker-compose.dev.yml`, `.env.example`, scripts de seed/tópicos) — **sem** subir nada e **sem** tocar no código da aplicação. É diferente do `quickstart.md` que `/plan` gera por-feature: `/localdev` é o ambiente inteiro, uma vez.
 
 `/design-import` também roda uma vez por projeto (e de novo quando o design mudar). Ele recebe o caminho de um export do Claude Design já baixado — imagens PNG/PDF, o `.html` do canvas publicado, ou arquivos `.dc.html` — copia os brutos para `design/assets/` e gera documentação em `design/`: `design-system.md` (tokens), `screens/*.md` (uma por tela), `components.md` (inventário de componentes reutilizáveis), `manifest.md` (índice + rastreio tela → feature) e `tokens.*` no formato de estilo do projeto. É opcional e **não** é lido automaticamente por `/plan`/`/tasks` — aponte a pasta `design/` à mão ao planejar ou implementar telas.
 
@@ -39,6 +42,7 @@ Além dessas fases, o kit traz dois comandos de apoio para git:
 - **`/specify` sempre pergunta a Definição de Pronto (DoD).** Em toda spec — feature, correção de bug, análise, validação, o que for — uma das perguntas obrigatórias é "quais pontos são primordiais para isto estar DONE?". A resposta vira uma checklist verificável em `spec.md`, que `/analyze` confere ter cobertura em `tasks.md` e que `/implement` confirma item a item ao final.
 - **`/architecture` segue a mesma regra.** Se o código existente for ambíguo/inconsistente, ou se for um projeto novo, pergunta ao usuário em vez de assumir uma convenção — e confirma o resumo detectado antes de gravar.
 - **`/design-import` também segue a regra de dúvida bloqueia.** Se o export estiver ambíguo, incompleto ou não reconhecível, pergunta em vez de inventar valores de token/tela/componente. Se `architecture.md` não deixar claro o formato de tokens em código, pergunta qual gerar.
+- **`/localdev` nunca escolhe sozinho como simular uma dependência.** Para cada banco/broker/cache/storage, para e pergunta (uma de cada vez, com opções e trade-offs) como o usuário quer rodá-lo localmente. Nunca escreve um `.env` real nem valores de segredo, nunca sobrescreve `docker-compose*`/`Makefile` existentes (propõe o diff ou um arquivo `*.dev` separado), nunca sobe os serviços, e deixa explícito no guia tudo que **não** roda localmente.
 - **`/tasks` organiza o trabalho em fases coerentes** com a feature real (ex.: "Fase 1: Autenticação básica", "Fase 2: Recuperação de senha"), não só num esqueleto genérico fixo repetido sempre igual, e usa `architecture.md` para decidir os caminhos de arquivo.
 - **`/push` nunca força push** e sempre confirma o que vai ser enviado antes de rodar `git push`.
 
@@ -48,10 +52,11 @@ Além dessas fases, o kit traz dois comandos de apoio para git:
 .specify/
 ├── memory/
 │   ├── constitution.md         # template da constituição do projeto (princípios)
-│   └── architecture.md         # NÃO existe até rodar /architecture — arquitetura/convenções do projeto
-├── templates/                  # templates de spec, plan, tasks, architecture, design-* e do CLAUDE.md
-└── scripts/bash/                # scripts que os slash commands chamam (inclui import-design.sh)
-.claude/commands/                # os 11 slash commands (/constitution, /architecture, /design-import, /specify, ..., /commit, /push)
+│   ├── architecture.md         # NÃO existe até rodar /architecture — arquitetura/convenções do projeto
+│   └── local-dev.md            # NÃO existe até rodar /localdev — como subir o ambiente local
+├── templates/                  # templates de spec, plan, tasks, architecture, design-*, local-dev e do CLAUDE.md
+└── scripts/bash/                # scripts que os slash commands chamam (inclui import-design.sh e setup-localdev.sh)
+.claude/commands/                # os 12 slash commands (/constitution, /architecture, /localdev, /design-import, /specify, ..., /commit, /push)
 specs/                           # onde as specs de cada feature são criadas (vazio aqui)
 design/                          # NÃO existe até rodar /design-import — Design System, telas e componentes do projeto
 ```
@@ -75,6 +80,7 @@ Depois, dentro de uma sessão do Claude Code no projeto:
 ```
 /constitution         # defina os princípios do projeto (uma vez, no início)
 /architecture         # detecta ou define a arquitetura/convenções (uma vez, no início)
+/localdev             # opcional: prepara o ambiente para rodar/testar localmente
 /design-import ~/Downloads/<export do Claude Design>   # opcional: importa e documenta o design
 /specify "descrição da primeira feature em linguagem natural"
 /clarify              # se a spec tiver ambiguidades
