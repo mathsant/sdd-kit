@@ -28,8 +28,13 @@ $ARGUMENTS
    - Depois de cada resposta, incorpore-a imediatamente no requisito/cenário afetado e continue preenchendo a spec.
    - Só considere a spec pronta quando não houver mais nenhuma dúvida real sua sobre o comportamento esperado.
 
-5. Rode o checklist de revisão no fim do template. Se algo não bater (detalhe de implementação vazou, requisito não-testável), corrija antes de terminar.
+5. **Pergunta obrigatória — Definição de Pronto (DoD)**: independente do tipo de spec (feature nova, correção de bug, análise, validação, spike, etc.), sempre pergunte ao usuário algo como: *"quais pontos são primordiais para considerar isto DONE?"* Essa pergunta é obrigatória em **toda** spec — diferente do passo 4, não depende de você ter uma dúvida; faça-a sempre, mesmo que a spec pareça simples ou óbvia.
+   - Se a resposta vier vaga ou não-verificável (ex.: "funcionar bem", "estar completo", "ficar redondo"), não aceite — peça algo objetivo e checável, na mesma lógica do passo 4.
+   - Registre a resposta na seção "Definição de Pronto (Definition of Done)" do `spec.md`, como uma checklist de itens concretos (não precisa ser um espelho 1:1 dos Requisitos Funcionais — pode incluir coisas como "sem regressão no fluxo de login", "documentação atualizada", "aprovado por [pessoa/critério]", conforme o que o usuário apontar como essencial).
+   - Essa checklist é a referência que o `/implement` usa no final para confirmar se a spec está realmente concluída.
 
-6. Reporte ao usuário: branch criada, caminho do spec.md, e um resumo das decisões tomadas nas perguntas feitas. A spec só deve chegar a este ponto sem `[NEEDS CLARIFICATION]` pendente — se algum ficou (por pedido explícito do usuário), avise que `/clarify` pode ser rodado depois para revisitá-lo. Caso contrário, já pode seguir direto para `/plan`.
+6. Rode o checklist de revisão no fim do template. Se algo não bater (detalhe de implementação vazou, requisito não-testável, DoD vago ou ausente), corrija antes de terminar.
+
+7. Reporte ao usuário: branch criada, caminho do spec.md, um resumo das decisões tomadas nas perguntas feitas, e a Definição de Pronto registrada. A spec só deve chegar a este ponto sem `[NEEDS CLARIFICATION]` pendente — se algum ficou (por pedido explícito do usuário), avise que `/clarify` pode ser rodado depois para revisitá-lo. Caso contrário, já pode seguir direto para `/plan`.
 
 Não crie `plan.md` nem toque em código de implementação neste comando.

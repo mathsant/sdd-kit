@@ -33,6 +33,7 @@ Além dessas fases, o kit traz dois comandos de apoio para git:
 ### Regras de comportamento do fluxo
 
 - **`/specify` nunca segue em frente com dúvida.** Sempre que surgir qualquer ambiguidade real sobre o que a feature deve fazer, o comando para e pergunta na conversa — não importa quantas perguntas sejam necessárias. Não usa `[NEEDS CLARIFICATION]` como forma de adiar a decisão e continuar escrevendo.
+- **`/specify` sempre pergunta a Definição de Pronto (DoD).** Em toda spec — feature, correção de bug, análise, validação, o que for — uma das perguntas obrigatórias é "quais pontos são primordiais para isto estar DONE?". A resposta vira uma checklist verificável em `spec.md`, que `/analyze` confere ter cobertura em `tasks.md` e que `/implement` confirma item a item ao final.
 - **`/architecture` segue a mesma regra.** Se o código existente for ambíguo/inconsistente, ou se for um projeto novo, pergunta ao usuário em vez de assumir uma convenção — e confirma o resumo detectado antes de gravar.
 - **`/tasks` organiza o trabalho em fases coerentes** com a feature real (ex.: "Fase 1: Autenticação básica", "Fase 2: Recuperação de senha"), não só num esqueleto genérico fixo repetido sempre igual, e usa `architecture.md` para decidir os caminhos de arquivo.
 - **`/push` nunca força push** e sempre confirma o que vai ser enviado antes de rodar `git push`.

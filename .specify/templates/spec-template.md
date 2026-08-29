@@ -13,7 +13,8 @@
 4. Preencha as seções de Cenários de Usuário e Testes.
 5. Gere Requisitos Funcionais — cada um deve ser testável.
 6. Identifique Entidades-Chave, se o recurso envolve dados.
-7. Rode o "Checklist de Revisão" abaixo antes de considerar a spec pronta.
+7. Pergunte ao usuário qual é a Definição de Pronto (DoD) — quais pontos são primordiais para isto estar DONE — e preencha essa seção com a resposta.
+8. Rode o "Checklist de Revisão" abaixo antes de considerar a spec pronta.
 
 **IMPORTANTE**: esta especificação descreve O QUÊ os usuários precisam e POR QUÊ. Evite detalhes de implementação (stack, APIs, estrutura de código) — isso é papel do `/plan`.
 
@@ -55,6 +56,16 @@
 
 ---
 
+## Definição de Pronto (Definition of Done) *(obrigatório)*
+
+*Resposta do usuário à pergunta feita pelo `/specify`: quais pontos são primordiais para considerar isto DONE? Vale para qualquer tipo de spec — feature, correção de bug, análise, validação, etc. Cada item deve ser verificável objetivamente (não "funcionar bem"), e vira referência direta para o `/implement` confirmar conclusão no final.*
+
+- [ ] [critério 1, ex.: "usuário consegue completar o cadastro sem erro em todos os cenários de aceitação acima"]
+- [ ] [critério 2, ex.: "cobertura de teste automatizado no fluxo principal"]
+- [ ] [critério 3, ex.: "nenhuma regressão nos fluxos existentes de login"]
+
+---
+
 ## Esclarecimentos
 
 *Preenchido pelo comando `/clarify`. Cada rodada adiciona uma subseção com data.*
@@ -83,3 +94,4 @@
 - [ ] Critérios de sucesso são mensuráveis
 - [ ] Escopo está claramente delimitado
 - [ ] Dependências e premissas identificadas
+- [ ] Definição de Pronto preenchida, com critérios objetivos e verificáveis (não vagos)

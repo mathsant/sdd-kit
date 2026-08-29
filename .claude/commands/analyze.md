@@ -29,6 +29,7 @@ Este comando é **somente-leitura**: reporta problemas, não corrige nada automa
    - Duas tarefas marcadas `[P]` que escrevem no mesmo arquivo.
    - Entidade em `data-model.md` sem nenhuma tarefa de modelo.
    - Cenário de aceitação da spec sem teste de integração correspondente em `tasks.md`.
+   - Item da "Definição de Pronto" do `spec.md` sem nenhuma tarefa em `tasks.md` que o satisfaça (ex.: DoD pede "sem regressão no login" mas não há tarefa de teste de regressão).
 
    **Info**:
    - Inconsistências terminológicas entre os documentos (mesmo conceito com nomes diferentes).

@@ -13,7 +13,7 @@ $ARGUMENTS
    ```
    Se `tasks.md` não existir, avise o usuário para rodar `/tasks` primeiro.
 
-2. Leia `tasks.md` completo, mais `plan.md`, `data-model.md` e `contracts/*` como referência de design.
+2. Leia `tasks.md` completo, mais `plan.md`, `data-model.md`, `contracts/*` e a seção "Definição de Pronto (Definition of Done)" de `spec.md` como referência de design e de critério final de conclusão.
 
 3. Execute as tarefas na ordem definida em "Dependências":
    - Respeite a ordem TDD: escreva e rode o teste da tarefa antes de implementar o código que o satisfaz, quando a tarefa for de teste.
@@ -24,6 +24,8 @@ $ARGUMENTS
    - Pare de avançar para as tarefas seguintes que dependem dela.
    - Reporte o bloqueio ao usuário com o erro real, em vez de assumir uma solução não especificada.
 
-5. Ao final (ou ao atingir o ponto pedido pelo usuário), reporte: quantas tarefas foram concluídas, quais ficaram pendentes/bloqueadas e por quê, e sugira rodar os testes completos do projeto para confirmar o estado.
+5. Ao final (ou ao atingir o ponto pedido pelo usuário), confira cada item da "Definição de Pronto" do `spec.md` contra o que foi de fato implementado/verificado — não marque um item como atendido sem confirmar (rodando o teste correspondente, checando o comportamento, etc.).
+
+6. Reporte: quantas tarefas foram concluídas, quais ficaram pendentes/bloqueadas e por quê, o status de cada item da Definição de Pronto (atendido / pendente / não verificável ainda), e sugira rodar os testes completos do projeto para confirmar o estado.
 
 Não pule etapas de teste "pra ir mais rápido" — a ordem TDD do `tasks.md` existe para garantir que a implementação seja verificável.
