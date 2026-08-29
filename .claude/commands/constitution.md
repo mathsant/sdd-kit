@@ -29,3 +29,5 @@ $ARGUMENTS
 6. Reporte ao usuário: versão nova, princípios definidos, e qualquer template que precisa de atenção manual.
 
 **Não** invente princípios que o usuário não validou. Prefira perguntar a assumir.
+
+**Nota**: a constituição define POR QUÊ/O QUÊ é inegociável (princípios). COMO o projeto é estruturado (stack, pastas, convenções) é papel do `/architecture`, gravado em `.specify/memory/architecture.md` — não misture os dois arquivos.

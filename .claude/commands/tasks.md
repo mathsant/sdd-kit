@@ -13,7 +13,7 @@ $ARGUMENTS
    ```
    Capture `FEATURE_DIR`, `SPEC_FILE`, `PLAN_FILE`. Se `plan.md` não existir, avise o usuário para rodar `/plan` primeiro.
 
-2. Leia `PLAN_FILE`, e se existirem, `data-model.md`, `contracts/*` e `quickstart.md` no mesmo diretório.
+2. Leia `PLAN_FILE`, e se existirem, `data-model.md`, `contracts/*`, `quickstart.md` no mesmo diretório, e `.specify/memory/architecture.md`.
 
 3. **Defina as fases antes de listar tarefas.** `.specify/templates/tasks-template.md` traz um esqueleto genérico (Setup / Testes / Core / Integração / Polimento) só como ponto de partida — não copie esses nomes/quantidade cegamente. Projete as fases que fazem sentido **para esta feature específica**:
    - Cada fase deve representar um marco coerente e entregável (ex.: "Fase 1: Autenticação básica", "Fase 2: Recuperação de senha", "Fase 3: Auditoria de login" — em vez de só "Core" genérico), agrupando as tarefas que pertencem à mesma capacidade ou subsistema.
@@ -34,7 +34,7 @@ $ARGUMENTS
    - Modelos antes de serviços antes de endpoints/UI.
    - Marque `[P]` **só** quando as tarefas tocam arquivos diferentes e não têm dependência entre si — nunca marque `[P]` em duas tarefas que escrevem no mesmo arquivo.
 
-6. Cada tarefa deve ter: número sequencial (T001, T002, ...), descrição de uma linha, e o caminho de arquivo exato a criar/editar. Tarefas vagas ("melhorar performance") não são aceitáveis — reescreva com um alvo concreto.
+6. Cada tarefa deve ter: número sequencial (T001, T002, ...), descrição de uma linha, e o caminho de arquivo exato a criar/editar. Tarefas vagas ("melhorar performance") não são aceitáveis — reescreva com um alvo concreto. Os caminhos devem seguir a tabela "Onde cada tipo de código novo deve ir" de `architecture.md`, quando existir — não invente uma estrutura de pastas diferente da já estabelecida no projeto.
 
 7. Preencha a seção "Dependências" e o "Exemplo de execução em paralelo" com as tarefas reais geradas (não deixe o texto de exemplo do template).
 

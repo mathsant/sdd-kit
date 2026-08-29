@@ -13,11 +13,14 @@ $ARGUMENTS
    ```
    Capture do JSON: `PLAN_FILE`, `SPEC_FILE`, `RESEARCH_FILE`, `DATA_MODEL_FILE`, `QUICKSTART_FILE`, `CONTRACTS_DIR`, `FEATURE_DIR`.
 
-2. Leia `SPEC_FILE` e `.specify/memory/constitution.md`.
+2. Leia `SPEC_FILE`, `.specify/memory/constitution.md` e `.specify/memory/architecture.md`.
+   - Se `architecture.md` **não existir**, avise o usuário que rodar `/architecture` primeiro é recomendado (garante que a stack/estrutura seja consistente entre features), mas pode prosseguir: faça você mesmo uma checagem leve do projeto (`package.json`/`go.mod`/estrutura de pastas) e, se houver qualquer ambiguidade sobre a stack ou onde o código deve ir, pergunte ao usuário em vez de assumir.
 
 3. Preencha o `PLAN_FILE` (copiado de `.specify/templates/plan-template.md`) seguindo suas próprias seções, na ordem:
 
-   **Contexto Técnico**: preencha cada campo com a stack real do projeto (verifique `package.json`/`go.mod`/etc. se já existir código, ou use os argumentos do usuário). Marque `[NEEDS CLARIFICATION]` só onde realmente não dá pra decidir sem o usuário.
+   **Contexto Técnico**: preencha cada campo com a stack real do projeto. Se `architecture.md` existir, use-o como fonte da verdade (não reinvente stack/estrutura já decididas ali). Marque `[NEEDS CLARIFICATION]` só onde realmente não dá pra decidir sem o usuário.
+
+   **Estrutura do Projeto**: os caminhos de diretório desta seção devem seguir a tabela "Onde cada tipo de código novo deve ir" de `architecture.md`, quando existir, em vez de uma estrutura genérica.
 
    **Verificação da Constituição**: para cada princípio em `.specify/memory/constitution.md`, avalie se este plano está em conformidade. Se a constituição ainda não foi inicializada (placeholders), pule este gate e avise o usuário para rodar `/constitution`.
 
