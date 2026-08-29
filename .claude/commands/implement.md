@@ -1,0 +1,29 @@
+---
+description: Executa as tarefas de tasks.md da feature atual, respeitando ordem e paralelismo.
+---
+
+Argumentos opcionais do usuário (ex.: rodar só até uma tarefa específica):
+$ARGUMENTS
+
+## Sua tarefa
+
+1. Rode:
+   ```
+   .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
+   ```
+   Se `tasks.md` não existir, avise o usuário para rodar `/tasks` primeiro.
+
+2. Leia `tasks.md` completo, mais `plan.md`, `data-model.md` e `contracts/*` como referência de design.
+
+3. Execute as tarefas na ordem definida em "Dependências":
+   - Respeite a ordem TDD: escreva e rode o teste da tarefa antes de implementar o código que o satisfaz, quando a tarefa for de teste.
+   - Tarefas marcadas `[P]` sem dependência pendente entre si podem ser feitas em qualquer ordem relativa, mas ainda sequencialmente por você (não gere código conflitante).
+   - Depois de completar cada tarefa, marque o checkbox correspondente em `tasks.md` (`- [ ]` → `- [x]`).
+
+4. Se uma tarefa falhar (teste não passa, erro de build) ou depender de uma decisão não coberta pela spec/plano:
+   - Pare de avançar para as tarefas seguintes que dependem dela.
+   - Reporte o bloqueio ao usuário com o erro real, em vez de assumir uma solução não especificada.
+
+5. Ao final (ou ao atingir o ponto pedido pelo usuário), reporte: quantas tarefas foram concluídas, quais ficaram pendentes/bloqueadas e por quê, e sugira rodar os testes completos do projeto para confirmar o estado.
+
+Não pule etapas de teste "pra ir mais rápido" — a ordem TDD do `tasks.md` existe para garantir que a implementação seja verificável.
