@@ -9,7 +9,7 @@ $ARGUMENTS
 
 O objetivo é trazer um design feito no Claude Design para dentro do repositório e **documentá-lo**: Design System (tokens), catálogo de telas e inventário de componentes reutilizáveis, tudo em `design/`. É conhecimento por-projeto (como `/architecture`) — rode **uma vez por projeto** e de novo só quando o design mudar.
 
-`design/` é referência: `/plan` e `/tasks` **não** leem essa pasta automaticamente. Depois de rodar este comando, aponte `/plan` e `/implement` para `design/` à mão ao planejar/implementar telas.
+Depois que esta pasta existe, o fluxo passa a consumi-la automaticamente em features com UI: o `/specify` identifica quais telas do catálogo a feature realiza e grava o vínculo tela↔feature no `design/manifest.md`; o `/plan` mapeia cada tela vinculada a uma rota/página e a componentes de `design/components.md`, usando `design/tokens.*` como fonte visual; o `/tasks` cita o arquivo de design em cada tarefa de UI; e o `/implement` lê esses arquivos antes de construir a tela. O design **nunca** sobrepõe a spec: se divergirem, a spec vence e o comando reporta a divergência. Se `design/` não existir ou a feature não tiver UI, o fluxo segue sem — igual a `architecture.md` quando ausente.
 
 ### Passo 1 — Copiar e detectar
 
@@ -35,7 +35,7 @@ A partir dos templates, preencha com valores concretos (sem deixar placeholders 
 - `design/design-system.md` — de `.specify/templates/design-system-template.md`.
 - `design/screens/<slug-da-tela>.md` — um por artboard/tela, de `.specify/templates/design-screen-template.md`. `slug` em minúsculas com hífen (ex.: `login.md`, `detalhe-do-pedido.md`).
 - `design/components.md` — de `.specify/templates/design-components-template.md`. Inclua um componente só se ele aparece em 2+ telas ou o design o marca como reutilizável.
-- `design/manifest.md` — de `.specify/templates/design-manifest-template.md`. Preencha as tabelas de Telas e Componentes; deixe as colunas "Feature" e "Status" com `—` (são preenchidas à mão depois). Registre a data na seção "Histórico de importações".
+- `design/manifest.md` — de `.specify/templates/design-manifest-template.md`. Preencha as tabelas de Telas e Componentes; deixe a coluna "Feature" com `—` (é preenchida pelo `/specify` quando a tela vira spec) e "Status" com `—` (à mão conforme a implementação avança). Registre a data na seção "Histórico de importações".
 
 **No re-run** (o comando já foi rodado antes): sobrescreva o conteúdo gerado, mas **preserve** tudo que estiver entre `<!-- SDD:MANUAL:INICIO -->` e `<!-- SDD:MANUAL:FIM -->` em cada arquivo. Em `manifest.md`, **acrescente** uma linha nova em "Histórico de importações" com o que mudou (telas novas, tokens alterados, componentes removidos) em vez de substituir o histórico.
 
@@ -47,9 +47,10 @@ A partir dos templates, preencha com valores concretos (sem deixar placeholders 
 
 ### Passo 5 — Reportar
 
-Diga ao usuário: o tipo de export detectado, quantas telas e quantos componentes foram documentados, o caminho do arquivo de tokens, e o lembrete de que `/plan` e `/implement` não leem `design/` sozinhos — ele deve referenciar a pasta manualmente ao trabalhar em telas.
+Diga ao usuário: o tipo de export detectado, quantas telas e quantos componentes foram documentados, o caminho do arquivo de tokens, e que a partir daqui `/specify`, `/plan`, `/tasks` e `/implement` passam a consumir `design/` automaticamente em features com UI (o `/specify` é quem grava o vínculo tela↔feature no `manifest.md`).
 
 ## Notas
 
 - Não toca em `specs/` nem em código de implementação.
+- O vínculo tela↔feature (coluna "Feature" do `manifest.md` e seção "Feature relacionada" de cada `screens/<tela>.md`) não é escrito por este comando — é preenchido depois pelo `/specify`, quando a tela vira spec.
 - `design/assets/` pode ficar grande (um `.html` de canvas tem ~2 MB; PDFs pesam). Se não quiser versionar os brutos, adicione `design/assets/` ao `.gitignore` — a documentação `.md` e `design/tokens.*` continuam versionadas.

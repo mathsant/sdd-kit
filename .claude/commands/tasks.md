@@ -14,6 +14,7 @@ $ARGUMENTS
    Capture `FEATURE_DIR`, `SPEC_FILE`, `PLAN_FILE`. Se `plan.md` não existir, avise o usuário para rodar `/plan` primeiro.
 
 2. Leia `PLAN_FILE`, e se existirem, `data-model.md`, `contracts/*`, `quickstart.md` no mesmo diretório, e `.specify/memory/architecture.md`.
+   - Se `plan.md` referenciar a pasta `design/` (mapeamento de telas na Fase 1), leia também `design/components.md`, os `design/screens/<tela>.md` citados no plano e `design/design-system.md` (para saber o caminho do arquivo de tokens). Se o plano não menciona `design/`, siga sem.
 
 3. **Defina as fases antes de listar tarefas.** `.specify/templates/tasks-template.md` traz um esqueleto genérico (Setup / Testes / Core / Integração / Polimento) só como ponto de partida — não copie esses nomes/quantidade cegamente. Projete as fases que fazem sentido **para esta feature específica**:
    - Cada fase deve representar um marco coerente e entregável (ex.: "Fase 1: Autenticação básica", "Fase 2: Recuperação de senha", "Fase 3: Auditoria de login" — em vez de só "Core" genérico), agrupando as tarefas que pertencem à mesma capacidade ou subsistema.
@@ -27,6 +28,7 @@ $ARGUMENTS
    - Uma tarefa de teste de integração por cenário de aceitação da spec.
    - Tarefas de implementação core que fazem os testes acima passarem.
    - Tarefas de integração (storage, middleware, observabilidade) conforme o plano.
+   - **Tarefas de UI (só se o plano referenciar `design/`)**: cada tarefa de tela ou de componente cita no próprio texto o arquivo de design que a governa (`design/screens/<tela>.md` ou `design/components.md#<componente>`) e usa `design/tokens.*` para valores visuais. Gere uma tarefa por componente novo do inventário do `design/manifest.md` que ainda não existe no código.
    - Tarefas de polimento (testes unitários, docs, rodar o `quickstart.md`).
 
 5. Ordene por dependência real, não pela ordem do template:

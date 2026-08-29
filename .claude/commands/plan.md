@@ -15,6 +15,7 @@ $ARGUMENTS
 
 2. Leia `SPEC_FILE`, `.specify/memory/constitution.md` e `.specify/memory/architecture.md`.
    - Se `architecture.md` **não existir**, avise o usuário que rodar `/architecture` primeiro é recomendado (garante que a stack/estrutura seja consistente entre features), mas pode prosseguir: faça você mesmo uma checagem leve do projeto (`package.json`/`go.mod`/estrutura de pastas) e, se houver qualquer ambiguidade sobre a stack ou onde o código deve ir, pergunte ao usuário em vez de assumir.
+   - **Design (condicional — só se `design/` existir E a feature tiver UI)**: se a pasta `design/` existir e a feature envolver telas, leia também `design/design-system.md`, `design/components.md`, `design/manifest.md` e os `design/screens/<tela>.md` das telas desta feature (localize-as pela coluna "Feature" do `manifest.md`, preenchida pelo `/specify`). Se `design/` não existir ou a feature não tiver UI, siga sem — como acontece com `architecture.md` quando ausente.
 
 3. Preencha o `PLAN_FILE` (copiado de `.specify/templates/plan-template.md`) seguindo suas próprias seções, na ordem:
 
@@ -30,6 +31,7 @@ $ARGUMENTS
    - Escreva `DATA_MODEL_FILE` a partir das Entidades-Chave da spec.
    - Gere contratos de API/interface em `CONTRACTS_DIR/` a partir dos Requisitos Funcionais.
    - Escreva `QUICKSTART_FILE` com os passos manuais para validar a feature.
+   - **Mapeamento de telas contra `design/` (só se `design/` existir e a feature tiver UI)**: para cada tela desta feature (as vinculadas no `design/manifest.md`), mapeie a tela a uma rota/página concreta; liste os componentes de `design/components.md` que ela usa, marcando quais já existem no código (reusar) e quais faltam (criar); referencie o `design/screens/<tela>.md` e o `design/tokens.*` como fonte visual — **não** redefina cores, espaçamento ou tipografia à mão no plano. Registre em `research.md` quais telas do catálogo esta feature cobre e qualquer divergência entre o design e a spec (a spec vence; a divergência fica anotada).
    - Rode `.specify/scripts/bash/update-agent-context.sh` para propagar a stack decidida ao `CLAUDE.md` do projeto.
 
    **Fase 2 — descrição da abordagem de tarefas**: só descreva a estratégia que o `/tasks` vai seguir. **Não gere `tasks.md` neste comando.**
