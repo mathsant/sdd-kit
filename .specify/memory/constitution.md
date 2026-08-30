@@ -9,6 +9,14 @@ Templates que podem precisar de revisão: spec-template.md, plan-template.md, ta
 
 ## Princípios Centrais
 
+### Idioma do código: inglês (regra fixa do kit — não editável)
+
+Todo artefato técnico do projeto é escrito em **inglês**, sem exceção: nomes de arquivos e pastas, identificadores de código (variáveis, funções, classes, métodos, constantes, tipos, módulos, pacotes), nomes de branch, nomes de tabela/coluna/índice, chaves de configuração e de tradução, nomes de recursos de infra, mensagens de commit e comentários no código.
+
+Português (ou outro idioma) é permitido **apenas** em conteúdo voltado ao usuário final (textos de interface, mensagens exibidas, documentação de produto) e na documentação do fluxo SDD em si (`spec.md`, `plan.md`, `tasks.md` e afins continuam em português).
+
+**Justificativa**: mantém a base de código consistente, legível por qualquer ferramenta e colaborador, e evita mistura de idiomas em identificadores — que é fonte recorrente de bugs de digitação e de convenção. Esta regra vem do kit e vale para todo projeto; `/constitution` não deve removê-la nem transformá-la em placeholder. Se um projeto específico precisar de exceção, ela deve ser documentada explicitamente na seção "Restrições Adicionais" com justificativa.
+
 ### [PRINCÍPIO_1_NOME]
 
 [Descrição do princípio em termos concretos e verificáveis — não uma platitude. Ex.: "Toda feature exposta ao usuário deve ter um teste de integração cobrindo o caminho feliz antes do merge."]

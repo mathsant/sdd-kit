@@ -7,11 +7,11 @@ $ARGUMENTS
 
 ## Sua tarefa
 
-1. Rode:
+1. A partir da descrição do usuário, componha um **slug curto em inglês** (2-4 palavras, minúsculas, sem acento) que resuma a feature — nome de branch e de pasta são sempre em inglês (regra fixa do kit). Ex.: descrição "cadastro de consumo de energia" → slug `energy-consumption-signup`. Então rode:
    ```
-   .specify/scripts/bash/create-new-feature.sh --json "$ARGUMENTS"
+   .specify/scripts/bash/create-new-feature.sh --json --slug "<slug-em-ingles>" "$ARGUMENTS"
    ```
-   Isso cria a branch `NNN-nome-curto`, o diretório `specs/NNN-nome-curto/` e um `spec.md` a partir do template. Capture do JSON de saída: `BRANCH_NAME`, `SPEC_FILE`, `FEATURE_DIR`.
+   Isso cria a branch `NNN-slug-em-ingles`, o diretório `specs/NNN-slug-em-ingles/` e um `spec.md` a partir do template. Capture do JSON de saída: `BRANCH_NAME`, `SPEC_FILE`, `FEATURE_DIR`.
 
 2. Leia o `SPEC_FILE` recém-criado (é uma cópia de `.specify/templates/spec-template.md`).
 
@@ -21,6 +21,7 @@ $ARGUMENTS
    - Escreva Requisitos Funcionais testáveis (RF-001, RF-002, ...).
    - Identifique Entidades-Chave, se aplicável.
    - Mantenha o foco em O QUÊ/POR QUÊ. Nada de stack, frameworks, nomes de tabela — isso é papel do `/plan`.
+   - O `spec.md` é redigido em português (é documento do fluxo, não código). Mas qualquer identificador técnico que a spec introduza — nome de entidade, campo, evento, estado — já deve ser nomeado em **inglês**, para bater com a regra fixa do kit ("Idioma do código: inglês", na constituição) quando `/plan` e `/implement` transformarem isso em código.
 
 4. **Regra crítica — dúvida bloqueia, não marca e segue**: este é o momento mais importante do fluxo SDD. Sempre que você tiver qualquer dúvida real sobre o que a feature deve fazer (ambiguidade de comportamento, escopo indefinido, requisito que admite mais de uma interpretação, regra de negócio não dada), **pare e pergunte ao usuário diretamente na conversa**, uma pergunta por vez, e espere a resposta antes de continuar escrevendo a spec.
    - Não existe limite de perguntas — se surgirem 10 dúvidas reais, faça as 10. Preferir poucas perguntas nunca é motivo para assumir uma resposta.

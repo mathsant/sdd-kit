@@ -51,8 +51,10 @@
 
 ### Entidades-chave *(se a feature envolve dados)*
 
-- **[Entidade 1]**: o que representa, atributos-chave (sem detalhes de schema), relações com outras entidades.
-- **[Entidade 2]**: [...]
+*Nomeie cada entidade e atributo em inglês (regra fixa do kit — vira identificador no código); a descrição fica em português.*
+
+- **[Entity 1]**: o que representa, atributos-chave (sem detalhes de schema), relações com outras entidades.
+- **[Entity 2]**: [...]
 
 ---
 

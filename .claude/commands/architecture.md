@@ -9,6 +9,8 @@ $ARGUMENTS
 
 O objetivo é produzir `.specify/memory/architecture.md` a partir de `.specify/templates/architecture-template.md`, com a estrutura e as convenções que `/plan` e `/tasks` vão seguir dali em diante. Rode isso **uma vez por projeto**, no começo (logo após `/constitution`), e de novo só se a arquitetura mudar de verdade.
 
+**Regra fixa do kit (inegociável)**: código, nomes de arquivos, pastas, identificadores, branches, tabelas/colunas e recursos de infra são sempre em **inglês** — só texto voltado ao usuário final pode estar em português. Isso não é uma convenção a decidir com o usuário: já está no template de `architecture.md` e no princípio "Idioma do código: inglês" da constituição. Se o Passo 2A detectar código existente em português, mantenha a regra, registre os pontos em português na seção "Evidências usadas na detecção" e avise o usuário que são dívida a corrigir.
+
 ### Passo 1 — Determine se o projeto já tem código ou está começando do zero
 
 Verifique, além de `.specify/`, `.claude/` e `specs/` (que são do próprio kit): existe `package.json`, `go.mod`, `requirements.txt`/`pyproject.toml`, `Gemfile`, `composer.json`, `*.csproj`, `Cargo.toml`, ou qualquer diretório de código-fonte (`src/`, `app/`, `lib/`, etc.) com arquivos reais dentro? Existe histórico de commits além do commit inicial do kit?

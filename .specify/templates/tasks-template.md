@@ -60,6 +60,7 @@ Tarefa: "Teste de integração para [cenário 1] em [caminho]"
 ## Notas
 
 - `[P]` = arquivos diferentes, sem dependências entre as tarefas marcadas
+- Caminhos de arquivo/pasta e identificadores nas tarefas sempre em **inglês** (regra fixa do kit — ver constituição); a descrição da tarefa fica em português
 - Verificar que cada teste falha antes de implementar o código correspondente
 - Commitar após cada tarefa concluída
 - Evitar: tarefas vagas, conflitos no mesmo arquivo marcadas como `[P]`

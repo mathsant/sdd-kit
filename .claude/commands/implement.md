@@ -17,6 +17,8 @@ $ARGUMENTS
    - Se alguma tarefa citar um arquivo de `design/` (ou o `plan.md` referenciar essa pasta), leia os `design/screens/<tela>.md` e trechos de `design/components.md` correspondentes, mais `design/tokens.*`, **antes** de executar a tarefa de UI que depende deles.
    - **Regra**: a spec vence o design em comportamento. Se o arquivo de design contradisser um requisito da spec, implemente conforme a spec e reporte a divergência ao usuário em vez de resolver por conta própria.
 
+   - **Regra fixa do kit (inegociável)**: todo código que você escrever — nomes de arquivos, pastas, variáveis, funções, classes, tipos, constantes, branches, migrations, tabelas/colunas, comentários e mensagens de commit — é em **inglês**. Só strings/textos exibidos ao usuário final podem estar em português. Ver o princípio "Idioma do código: inglês" em `.specify/memory/constitution.md`.
+
 3. Execute as tarefas na ordem definida em "Dependências":
    - Respeite a ordem TDD: escreva e rode o teste da tarefa antes de implementar o código que o satisfaz, quando a tarefa for de teste.
    - Tarefas marcadas `[P]` sem dependência pendente entre si podem ser feitas em qualquer ordem relativa, mas ainda sequencialmente por você (não gere código conflitante).

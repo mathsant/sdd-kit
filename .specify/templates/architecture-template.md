@@ -31,9 +31,10 @@ rode /architecture de novo para atualizar este arquivo.
 
 ## Convenções de nomenclatura
 
-- **Componentes/módulos**: [ex.: PascalCase, um por arquivo, `NomeDoComponente.vue`]
-- **Testes**: [ex.: `nome.spec.ts` ao lado do arquivo testado]
-- **Outros**: [ex.: composables em `useAlgo.ts`, stores em `algoStore.ts`]
+- **Idioma (regra fixa do kit — não editável)**: todo nome de arquivo, pasta, identificador de código, branch, tabela/coluna, chave de config e recurso de infra é em **inglês**. Ver o princípio "Idioma do código: inglês" em `.specify/memory/constitution.md`. Português só em texto voltado ao usuário final.
+- **Componentes/módulos**: [ex.: PascalCase, um por arquivo, `ComponentName.vue`]
+- **Testes**: [ex.: `name.spec.ts` ao lado do arquivo testado]
+- **Outros**: [ex.: composables em `useSomething.ts`, stores em `somethingStore.ts`]
 
 ## Onde cada tipo de código novo deve ir
 
@@ -48,6 +49,7 @@ rode /architecture de novo para atualizar este arquivo.
 
 ## Padrões a seguir
 
+- **Código, arquivos e pastas sempre em inglês** (regra fixa do kit — inegociável). Se o código existente tiver identificadores/arquivos em português, registre isso em "Evidências usadas na detecção" e sinalize ao usuário como dívida a corrigir; não normalize para português.
 - [ex.: toda chamada HTTP passa por `src/api/client.ts`, nunca `fetch` direto no componente]
 
 ## Padrões a evitar

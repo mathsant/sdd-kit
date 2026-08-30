@@ -33,8 +33,8 @@ Isso cria `design/`, `design/assets/`, `design/screens/`, copia o export para `d
 A partir dos templates, preencha com valores concretos (sem deixar placeholders genéricos):
 
 - `design/design-system.md` — de `.specify/templates/design-system-template.md`.
-- `design/screens/<slug-da-tela>.md` — um por artboard/tela, de `.specify/templates/design-screen-template.md`. `slug` em minúsculas com hífen (ex.: `login.md`, `detalhe-do-pedido.md`).
-- `design/components.md` — de `.specify/templates/design-components-template.md`. Inclua um componente só se ele aparece em 2+ telas ou o design o marca como reutilizável.
+- `design/screens/<slug-da-tela>.md` — um por artboard/tela, de `.specify/templates/design-screen-template.md`. `slug` em **inglês**, minúsculas com hífen (regra fixa do kit: nomes de arquivo sempre em inglês; ex.: `login.md`, `order-details.md`).
+- `design/components.md` — de `.specify/templates/design-components-template.md`. Inclua um componente só se ele aparece em 2+ telas ou o design o marca como reutilizável. Nomeie cada componente em **inglês** (vira nome de componente no código; ex.: `PrimaryButton`, `OrderCard`).
 - `design/manifest.md` — de `.specify/templates/design-manifest-template.md`. Preencha as tabelas de Telas e Componentes; deixe a coluna "Feature" com `—` (é preenchida pelo `/specify` quando a tela vira spec) e "Status" com `—` (à mão conforme a implementação avança). Registre a data na seção "Histórico de importações".
 
 **No re-run** (o comando já foi rodado antes): sobrescreva o conteúdo gerado, mas **preserve** tudo que estiver entre `<!-- SDD:MANUAL:INICIO -->` e `<!-- SDD:MANUAL:FIM -->` em cada arquivo. Em `manifest.md`, **acrescente** uma linha nova em "Histórico de importações" com o que mudou (telas novas, tokens alterados, componentes removidos) em vez de substituir o histórico.

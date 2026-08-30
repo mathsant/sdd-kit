@@ -2,18 +2,24 @@
 # Cria uma nova feature: calcula o próximo número, cria a branch NNN-nome-curto,
 # cria specs/NNN-nome-curto/spec.md a partir do template e imprime o resultado em JSON.
 #
-# Uso: create-new-feature.sh [--json] "descrição da feature em linguagem natural"
+# Uso: create-new-feature.sh [--json] [--slug <slug-em-ingles>] "descrição da feature em linguagem natural"
+#
+# --slug: slug curto EM INGLÊS para o nome da branch/pasta (regra fixa do kit:
+#         nomes de pasta e branch sempre em inglês). Se omitido, o slug é derivado
+#         da descrição — o que só serve quando a descrição já está em inglês.
 
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/common.sh"
 
 JSON_MODE=false
+SLUG_OVERRIDE=""
 ARGS=()
-for arg in "$@"; do
-    case "$arg" in
-        --json) JSON_MODE=true ;;
-        *) ARGS+=("$arg") ;;
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --json) JSON_MODE=true; shift ;;
+        --slug) SLUG_OVERRIDE="${2:-}"; shift 2 ;;
+        *) ARGS+=("$1"); shift ;;
     esac
 done
 
@@ -43,8 +49,10 @@ if [[ -d "$SPECS_DIR" ]]; then
 fi
 NEXT_NUM=$(printf "%03d" $((LAST_NUM + 1)))
 
-# Slug curto (até 4 palavras, minúsculo, separado por hífen) a partir da descrição.
-SLUG=$(echo "$DESCRIPTION" \
+# Slug curto (até 4 palavras, minúsculo, separado por hífen).
+# Preferir o --slug em inglês passado pelo /specify; senão, derivar da descrição.
+SLUG_SOURCE="${SLUG_OVERRIDE:-$DESCRIPTION}"
+SLUG=$(echo "$SLUG_SOURCE" \
     | tr '[:upper:]' '[:lower:]' \
     | sed -E 's/[^a-z0-9 ]//g' \
     | tr -s ' ' '\n' \

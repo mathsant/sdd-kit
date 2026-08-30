@@ -36,7 +36,7 @@ $ARGUMENTS
    - Modelos antes de serviços antes de endpoints/UI.
    - Marque `[P]` **só** quando as tarefas tocam arquivos diferentes e não têm dependência entre si — nunca marque `[P]` em duas tarefas que escrevem no mesmo arquivo.
 
-6. Cada tarefa deve ter: número sequencial (T001, T002, ...), descrição de uma linha, e o caminho de arquivo exato a criar/editar. Tarefas vagas ("melhorar performance") não são aceitáveis — reescreva com um alvo concreto. Os caminhos devem seguir a tabela "Onde cada tipo de código novo deve ir" de `architecture.md`, quando existir — não invente uma estrutura de pastas diferente da já estabelecida no projeto.
+6. Cada tarefa deve ter: número sequencial (T001, T002, ...), descrição de uma linha, e o caminho de arquivo exato a criar/editar. Tarefas vagas ("melhorar performance") não são aceitáveis — reescreva com um alvo concreto. Os caminhos devem seguir a tabela "Onde cada tipo de código novo deve ir" de `architecture.md`, quando existir — não invente uma estrutura de pastas diferente da já estabelecida no projeto. Todo caminho de arquivo/pasta e todo identificador citado na tarefa é em **inglês** (regra fixa do kit — princípio "Idioma do código: inglês" da constituição); a descrição da tarefa em si continua em português.
 
 7. Preencha a seção "Dependências" e o "Exemplo de execução em paralelo" com as tarefas reais geradas (não deixe o texto de exemplo do template).
 

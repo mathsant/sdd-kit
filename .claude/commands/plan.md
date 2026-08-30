@@ -21,7 +21,7 @@ $ARGUMENTS
 
    **Contexto Técnico**: preencha cada campo com a stack real do projeto. Se `architecture.md` existir, use-o como fonte da verdade (não reinvente stack/estrutura já decididas ali). Marque `[NEEDS CLARIFICATION]` só onde realmente não dá pra decidir sem o usuário.
 
-   **Estrutura do Projeto**: os caminhos de diretório desta seção devem seguir a tabela "Onde cada tipo de código novo deve ir" de `architecture.md`, quando existir, em vez de uma estrutura genérica.
+   **Estrutura do Projeto**: os caminhos de diretório desta seção devem seguir a tabela "Onde cada tipo de código novo deve ir" de `architecture.md`, quando existir, em vez de uma estrutura genérica. Todo nome de arquivo, pasta, contrato, entidade e identificador citado no plano é em **inglês** (regra fixa do kit — princípio "Idioma do código: inglês" da constituição).
 
    **Verificação da Constituição**: para cada princípio em `.specify/memory/constitution.md`, avalie se este plano está em conformidade. Se a constituição ainda não foi inicializada (placeholders), pule este gate e avise o usuário para rodar `/constitution`.
 

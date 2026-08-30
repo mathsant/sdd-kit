@@ -15,7 +15,9 @@ $ARGUMENTS
    - Se o usuário já descreveu os princípios nos argumentos, use-os como base.
    - Caso contrário, pergunte ao usuário (uma pergunta por vez, via texto) quais são os 3-5 princípios não-negociáveis deste projeto específico. Evite sugerir princípios genéricos ("escreva código limpo") — busque regras concretas e verificáveis (ex.: "toda mudança de schema precisa de migration reversível", "nenhuma tela nova sem estado de loading e de erro tratados").
 
-3. Preencha `.specify/memory/constitution.md` substituindo todos os placeholders:
+   - **Regra fixa do kit — não mexer**: o princípio "Idioma do código: inglês" já vem preenchido no template e **não** é um placeholder. Mantenha-o intacto (texto e justificativa), não o renumere para fora, não o remova e não peça ao usuário para validá-lo. Ele sempre existe além dos 3-5 princípios específicos do projeto. Só registre exceção se o usuário pedir explicitamente — e nesse caso a exceção vai na seção "Restrições Adicionais", não na alteração do princípio.
+
+3. Preencha `.specify/memory/constitution.md` substituindo todos os placeholders (o princípio fixo "Idioma do código: inglês" não tem placeholder — deixe como está):
    - Nome do projeto.
    - Cada princípio com nome + descrição concreta + justificativa.
    - Restrições adicionais e fluxo de desenvolvimento, se aplicável (ou remova essas seções se não houver nada a declarar).
